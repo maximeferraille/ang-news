@@ -1,0 +1,23 @@
+<div>
+  <h1>News app</h1>
+  <!-- Search form -->
+  <section>
+    <app-form-search
+      [sources]="sources"
+      [bookmarks]="bookmarks"
+      [lastKeyword]="lastKeyword"
+      [lastSource]="lastSource"
+      (formSubmit)="getSourceArticles($event)"
+      (addBookmark)="addBookmark($event)"
+      (removeBookmark)="removeBookmark($event)"
+    ></app-form-search>
+  </section>
+
+  <!-- List of articles by source -->
+  <section *ngIf="sourceArticles && sourceArticles.length > 0">
+    <app-item-post *ngFor="let article of sourceArticles;" [post]="article"></app-item-post>
+  </section>
+  <section *ngIf="sourceArticles && sourceArticles.length === 0">
+    <p>Nothing to show</p>
+  </section>
+</div>

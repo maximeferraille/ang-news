@@ -1,0 +1,26 @@
+<form
+  [formGroup]="formData"
+  (submit)="formSubmit.emit({email: formData.value.email, password: formData.value.password})"
+>
+  <div>
+    <label for="email">Email</label>
+    <input
+      formControlName="email"
+      type="email" name="email" required minlength="5" placeholder="Your email"
+      pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+    >
+  </div>
+
+  <div>
+    <label for="password">Password</label>
+    <input
+      formControlName="password"
+      type="password" name="password" required placeholder="Your password"
+    >
+  </div>
+
+  <button
+    [disabled]="!formData.valid"
+    type="submit">Login
+  </button>
+</form>

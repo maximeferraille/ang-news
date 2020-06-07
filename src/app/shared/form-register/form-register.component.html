@@ -1,0 +1,51 @@
+<form
+  [formGroup]="formData"
+  (submit)="formSubmit.emit(formData.value)"
+>
+  <div>
+    <label for="firstname">firstname</label>
+    <input
+      formControlName="firstname"
+      type="text" name="firstname" required placeholder="Your firstname"
+    >
+  </div>
+
+  <div>
+    <label for="lastname">lastname</label>
+    <input
+      formControlName="lastname"
+      type="text" name="lastname" required placeholder="Your lastname"
+    >
+  </div>
+
+  <div>
+    <label for="email">Email</label>
+    <input
+      formControlName="email"
+      type="email" name="email" required minlength="5" placeholder="Your email"
+      pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+    >
+  </div>
+
+  <div>
+    <label for="password">Password</label>
+    <input
+      formControlName="password"
+      type="password" name="password" required placeholder="Your Password"
+    >
+  </div>
+
+  <div>
+    <label for="confirmPassword">Confirm password</label>
+    <input
+      formControlName="confirmPassword"
+      type="password" name="confirmPassword" required placeholder="Confirm password"
+    >
+  </div>
+
+
+  <button
+    [disabled]="!formData.valid"
+    type="submit">Login
+  </button>
+</form>

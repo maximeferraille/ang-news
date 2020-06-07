@@ -1,0 +1,49 @@
+<form
+class="container my-4"
+[formGroup]="formData"
+(submit)="formSubmit.emit(formData.value)">
+
+  <div>
+    <select formControlName="source">
+      <option
+        *ngFor="let source of sources"
+        [selected]="lastSource"
+        [value]="source.id"
+      >
+        {{ source.name }}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <input
+      formControlName="keywords"
+      type="text" name="keyword" placeholder="Keyword"
+    >
+  </div>
+
+  <div>
+    <button [disabled]="!formData.valid" type="submit">Search</button>
+
+    <button
+      [disabled]="!formData.controls['source'].value && !formData.controls['keywords'].value"
+      (click) = "resetNewsForm()" type="submit"
+    >
+      Reset
+    </button>
+
+    <button
+      *ngIf="!sourceAlreadyInBookmarks(formData.value.source) && currentUser"
+      type="button" (click)="addBookmark.emit(formData.value.source)"
+    >
+      Add to bookmarks
+    </button>
+
+    <button
+      *ngIf="sourceAlreadyInBookmarks(formData.value.source) && currentUser"
+      type="button" (click)="removeBookmark.emit(formData.value.source)"
+    >
+      Delete from bookmarks
+    </button>
+  </div>
+</form>

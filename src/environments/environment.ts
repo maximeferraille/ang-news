@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'https://newsapp.dwsapp.io/api/',
+  newsApiUrl: 'https://newsapi.org/v2/',
+  apiKey: '3c62fee8a3e445f18091ed993992225f'
 };
 
 /*
