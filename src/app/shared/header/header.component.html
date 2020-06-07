@@ -1,9 +1,9 @@
 <nav>
   <ul>
     <li *ngIf="currentUser">Welcome {{ currentUser.user.firstname }} {{ currentUser.user.lastname }}</li>
-    <li><a [routerLink]="'/'" class="nav-link">Home</a></li>
-    <li *ngIf="!currentUser"><a [routerLink]="'/register'" class="nav-link">Register</a></li>
-    <li *ngIf="!currentUser"><a [routerLink]="'/login'" class="nav-link">Login</a></li>
-    <li *ngIf="currentUser"><a href="javascript:void(0);" (click)="logout()" class="nav-link">Logout</a></li>
+    <li><a [routerLink]="'/'">Home</a></li>
+    <li *ngIf="!currentUser"><a [routerLink]="'/register'">Register</a></li>
+    <li *ngIf="!currentUser"><a [routerLink]="'/login'">Login</a></li>
+    <li *ngIf="currentUser"><a href="javascript:void(0);" (click)="logout()">Logout</a></li>
   </ul>
 </nav>
